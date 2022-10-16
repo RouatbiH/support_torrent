@@ -50,18 +50,7 @@ info@kleeja.net
 # Plugin Installation function
 $kleeja_plugin['support_torrent']['install'] = function ($plg_id)
 {
-//    //new language variables
-//    add_olang(array(
-//
-//    ),
-//        'ar',
-//        $plg_id);
-//
-//    add_olang(array(
-//
-//    ),
-//        'en',
-//        $plg_id);
+    copy(__DIR__.'/assets/images/torrent.png',PATH.'images/filetypes/torrent.png');
 };
 
 
@@ -81,10 +70,9 @@ $kleeja_plugin['support_torrent']['update'] = function ($old_version, $new_versi
 
 # Plugin Uninstallation, function to be called at unistalling
 $kleeja_plugin['support_torrent']['uninstall'] = function ($plg_id) {
-    //delete language variables
-//    foreach (array('ar', 'en') as $language) {
-//        delete_olang(null, $language, $plg_id);
-//    }
+    if(file_exists(PATH.'images/filetypes/torrent.png')) {
+        unlink(PATH.'images/filetypes/torrent.png');
+    }
 };
 
 
